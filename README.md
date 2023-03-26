@@ -59,3 +59,28 @@ b) static double bisect_iter (double min, double max) {
       En esta implementación, se utiliza una expresión lambda IntConsumer para representar la función mostrar_factores_primos. La expresión lambda toma un argumento         num y utiliza IntStream.rangeClosed para generar una secuencia de enteros desde 2 hasta num. Luego, utiliza filter para filtrar los números de la secuencia que         son divisores de num y findFirst para obtener el primer divisor. Si se encuentra un divisor, se muestra por pantalla y se llama recursivamente a la expresión           lambda con el cociente de num y el divisor como argumento.
 
       La llamada a la función mostrar_factores_primos_lambda.accept(x) muestra por pantalla todos los factores primos de x.
+      
+      
+      3.
+      
+      public static String decimalAHexadecimal(int decimal) {
+          if (decimal == 0) {
+            return "0";
+          }
+          StringBuilder resultado = new StringBuilder();
+          while (decimal > 0) {
+            int residuo = decimal % 16;
+            if (residuo < 10) {
+              resultado.insert(0, residuo);
+            } else {
+              resultado.insert(0, (char) (residuo - 10 + 'A'));
+         }
+            decimal = decimal / 16;
+         }
+         return resultado.toString();
+    }
+    
+    La función utiliza un StringBuilder para ir construyendo la cadena resultado, que se va formando de derecha a izquierda utilizando el método insert(0, valor).
+    
+    
+   
