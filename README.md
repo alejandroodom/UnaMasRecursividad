@@ -83,4 +83,41 @@ b) static double bisect_iter (double min, double max) {
     La función utiliza un StringBuilder para ir construyendo la cadena resultado, que se va formando de derecha a izquierda utilizando el método insert(0, valor).
     
     
+     4.
+    
+    Recursiva:
+    public static boolean esPalindromoRecursivo(String s) {
+        if (s.length() <= 1) {
+          return true;
+        } else {
+        char primer = s.charAt(0);
+        char ultimo = s.charAt(s.length() - 1);
+            if (primer != ultimo) {
+              return false;
+            } else {
+              String subcadena = s.substring(1, s.length() - 1);
+              return esPalindromoRecursivo(subcadena);
+            }
+      }
+  }
+  La función esPalindromoRecursivo recibe una cadena s y devuelve true si es un palíndromo, y false en caso contrario. Si la longitud de la cadena es menor o igual a     1, la función devuelve true. En caso contrario, se comparan el primer y el último carácter de la cadena, y si no son iguales, la   función devuelve false. Si son iguales, se llama recursivamente a la función con la subcadena que resulta de eliminar estos dos caracteres.
+  
+  Iterativa:
+  public static boolean esPalindromoIterativo(String s) {
+      int i = 0;
+      int j = s.length() - 1;
+      while (i < j) {
+          if (s.charAt(i) != s.charAt(j)) {
+              return false;
+          }
+          i++;
+          j--;
+      }
+      return true;
+  }
+  La función esPalindromoIterativo recibe una cadena s y devuelve true si es un palíndromo, y false en caso contrario. La función utiliza dos índices, i y j, que apuntan   al primer y al último carácter de la cadena, respectivamente. En cada iteración del bucle, se comparan los caracteres apuntados por i y j, y si no son iguales, la función devuelve false. Si son iguales, se actualizan los índices para apuntar al siguiente par de caracteres, hasta que i sea mayor o igual que j, en cuyo caso la función devuelve true.
+  
+  
+ 
+    
    
